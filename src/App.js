@@ -1,23 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import NobelPrize from './components/NobelPrize';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 function App() {
+
+  const [winnerList, setWinnerList] = useState([]);
+  useEffect(() => {
+    async function fetchWinnerList(){
+      try {
+        const requestUrl = 'http://api.nobelprize.org/v1/prize.json';
+        const response = await fetch(requestUrl);
+        const responseJSON = await response.json();
+        console.log(responseJSON.prizes[0].year);
+        setWinnerList(responseJSON);
+      } catch {
+        
+      }
+    }
+  
+    return () => {
+      fetchWinnerList();
+    }
+  }, [])
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <NobelPrize winnersList={winnerList} />
     </div>
   );
 }
