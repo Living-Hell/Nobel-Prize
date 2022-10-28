@@ -18,12 +18,12 @@ function App() {
 
   return (
     <>
-      <Typography 
-        variant = "h4"
+      <Typography variant = "h4"
         style = {{ margin:18, fontFamily: "Roboto", textAlign: "center" }}
-        >
+      >
         Nobel Prize Winners
       </Typography>
+        <div style={{textAlign: "center"}} OnClick = {<SearchBar/>}>Frequent Winners</div>
       <SearchBar winners={winners} setSearchResults={setSearchResults} />
       <WinnersPage searchResults={searchResults} />
     </>

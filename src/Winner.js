@@ -4,7 +4,8 @@ const Winner = ({ winners }) => {
         <TableRow>
             <TableCell >{winners.year}</TableCell>
             <TableCell>{winners.category}</TableCell>
-            <TableCell >{winners.laureates && winners.laureates.map((name => 
+            <TableCell >{winners.laureates && 
+                winners.laureates.map((name => 
                 <td>{name.firstname} {" "}{name.surname}{" | "}</td>
                 ))}
             </TableCell>
