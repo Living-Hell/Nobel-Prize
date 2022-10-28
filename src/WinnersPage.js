@@ -1,9 +1,11 @@
 import Winner from "./Winner"
-import { Container, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core';
+import { Container, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, LinearProgress } from '@material-ui/core';
 
 const WinnersPage = ({ searchResults }) => {
 
     const results = searchResults.map(winners => <Winner  winners={winners} />)
+
+    if(!results.length) return <LinearProgress style={{ backgroundColor: "#40E0D0"}} />;
 
     const content = results?.length ? results : <article><p>No Matching Winners</p></article>
 
