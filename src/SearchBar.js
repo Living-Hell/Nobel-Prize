@@ -10,19 +10,26 @@ const SearchBar = ({ winners, setSearchResults }) => {
         setSearchResults(resultsArray)
     }
 
+    const year = [];
+    for(let i=1990; i<=2018; i++)
+        year.push(i.toString());
+    const categories = ["chemistry", "economics", "literature", "peace", "medicine"];
     return (
-        <div style = {{ textAlign: "left", margin:18, alignItems:"center"}}>
-            <form className="search" onSubmit={handleSubmit} >
-                <input
-                    className="search__input"
-                    type="text"
-                    id="search"
-                    placeholder="Search by Year or Category"
-                    onChange={handleSearchChange}
-                />
-                <button > Search
-                </button>
-            </form>
+
+        <div style = {{ textAlign: "left", margin:18, marginLeft:250}}>
+            <form className="search" onSubmit={handleSubmit} ></form>
+                    <input list="year" placeholder="Search by Year" id="search" onChange={handleSearchChange}></input>
+                        <datalist id="year">
+                            {year.map((op)=><option>{op}</option>)}
+                    </datalist>
+                    <button style = {{ marginLeft:250}}> Search
+                    </button>
+                    <input list="categories" placeholder="Search by Category" id="search" style = {{ marginLeft:250}} onChange={handleSearchChange}></input>
+                        <datalist id="categories">
+                            {categories.map((op)=><option>{op}</option>)}
+                    </datalist>
+                    
+                
             </div>
     )
 }

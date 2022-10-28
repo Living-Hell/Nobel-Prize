@@ -9,12 +9,7 @@ const WinnersPage = ({ searchResults }) => {
 
     return (
         <Container style = {{ textAlign: "center"}}>
-                <Typography
-                    variant = "h4"
-                    style = {{ margin:18, fontFamily: "Roboto" }}
-                    >
-                    Nobel Prize Winners
-                    </Typography>
+                
                     <TableContainer>
         <Table>
             <TableHead style = {{backgroundColor: "#91bad6"}}>
