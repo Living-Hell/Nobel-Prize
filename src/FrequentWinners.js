@@ -4,9 +4,9 @@ import { Container, Table, TableBody, TableCell, TableContainer, TableHead, Tabl
 const FrequentWinners = () => {
   return (
     <Container style = {{ textAlign: "center"}}>
-                
+               
             <TableContainer>
-                <Table>
+                <Table id="MultipleWinners">
                     <TableHead style = {{backgroundColor: "#91bad6"}}>
                         <TableRow>
                             {["Year", "Category", "Laureates"].map((head) => (

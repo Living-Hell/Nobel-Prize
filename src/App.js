@@ -26,8 +26,6 @@ function App() {
       </Typography>
       <SearchBar winners={winners} setSearchResults={setSearchResults} />
       <WinnersPage searchResults={searchResults} />
-      <div style = {{ margin:18, fontFamily: "Roboto", textAlign: "center" }}><h2>Frequent Winners</h2></div>
-      <FrequentWinners />
     </>
   );
 }
