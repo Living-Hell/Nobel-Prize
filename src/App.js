@@ -1,14 +1,26 @@
 import './App.css';
-import NobelPrize from './components/NobelPrize';
-import { useState } from 'react';
-import { useEffect } from 'react';
-
+import { getWinners} from './API/axios';
+import { useState, useEffect } from 'react';
+import SearchBar from './SearchBar';
+import WinnersPage
+ from './WinnersPage';
 function App() {
 
+  const [winners,setWinners] = useState([]);
+  const [searchResults,setSearchResults] = useState([]);   
+
+  useEffect(() => {
+    getWinners().then(json => {
+      setWinners(json)
+      setSearchResults(json)
+    })
+  }, [])
+
   return (
-    <div className='App'>
-      <NobelPrize />
-    </div>
+    <>
+      <SearchBar winners={winners} setSearchResults={setSearchResults} />
+      <WinnersPage searchResults={searchResults} />
+    </>
   );
 }
 
