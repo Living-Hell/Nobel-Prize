@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import SearchBar from './SearchBar';
 import WinnersPage from './WinnersPage';
 import { Typography } from '@material-ui/core';
+import FrequentWinners from './FrequentWinners';
 function App() {
 
   const [winners,setWinners] = useState([]);
@@ -23,9 +24,10 @@ function App() {
       >
         Nobel Prize Winners
       </Typography>
-        <div style={{textAlign: "center"}} OnClick = {<SearchBar/>}>Frequent Winners</div>
       <SearchBar winners={winners} setSearchResults={setSearchResults} />
       <WinnersPage searchResults={searchResults} />
+      <div style = {{ margin:18, fontFamily: "Roboto", textAlign: "center" }}><h2>Frequent Winners</h2></div>
+      <FrequentWinners />
     </>
   );
 }
