@@ -81,9 +81,10 @@ const WinnersPage = ({ searchResults }) => {
                         <TableCell >Frederick Sanger </TableCell>
                     </TableRow>
                     </TableBody>
-                    
+                                
                 </Table>
             </TableContainer>
+            
         </Container>
         
     )
